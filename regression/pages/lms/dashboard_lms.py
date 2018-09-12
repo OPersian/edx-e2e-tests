@@ -1,9 +1,13 @@
 """
 Student dashboard page.
 """
+from time import sleep
 from edxapp_acceptance.pages.lms.dashboard import DashboardPage
 from bok_choy .promise import BrokenPromise
-from regression.pages.lms import LOGIN_BASE_URL
+
+from regression.pages.lms import LMS_BASE_URL, LMS_PROTOCOL
+
+LOGIN_BASE_URL = '{}://{}'.format(LMS_PROTOCOL, LMS_BASE_URL)
 
 
 class DashboardPageExtended(DashboardPage):
@@ -49,7 +53,11 @@ class DashboardPageExtended(DashboardPage):
         """
         options = self.q(css='.wrapper-action-more[data-course-key="{}"] button'.format(course_id))
         options.click()
+        sleep(1)
         unenroll_button = self.q(css='a[href="#unenroll-modal"][data-course-id="{}"]'.format(course_id))
+        sleep(1)
         unenroll_button.click()
+        sleep(1)
         unenroll_splash = self.q(css='div input[name="submit"]')
+        sleep(1)
         unenroll_splash.click()

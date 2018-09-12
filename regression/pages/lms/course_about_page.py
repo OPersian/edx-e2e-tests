@@ -35,3 +35,9 @@ class CourseAboutPageExtended(CourseAboutPage):
 
     def view_course_button(self):
         return self.q(css='a[class^="theme-btn-2"]')
+
+    def register(self):
+        """
+        Get the enroll button and lick on it
+        """
+        self.q(css='a.register').first.click()
