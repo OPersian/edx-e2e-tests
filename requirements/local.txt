@@ -1,2 +1,3 @@
 # edx-platform page objects
--e git+https://github.com/edx/edx-platform.git#egg=edx-platform
+# -e git+https://github.com/edx/edx-platform.git#egg=edx-platform
+-e git+https://github.com/raccoongang/edx-platform@ginkgo-rg#egg=edx-platform
